@@ -1,31 +1,45 @@
+import { ButtonHTMLAttributes, DetailedHTMLProps, forwardRef } from "react";
 import cn from "../../utils/cn";
-export default function Button({
-  className,
-  variant,
-}: {
-  className: string;
-  variant: string;
-}) {
-  const getVariant = (variant: string) => {
-    switch (variant) {
-      case "outline":
-        return "btn-outline";
-      case "ghost":
-        return "btn-ghost";
 
-      default:
-        return "btn";
-    }
-  };
-  return (
-    <button
-      className={cn(
-        getVariant(variant),
+type TVariant = "solid" | "outline" | "ghost";
 
-        className
-      )}
-    >
-      Click Me
-    </button>
-  );
-}
+type TRef = HTMLButtonElement;
+
+type ButtonOptions = {
+  variant?: TVariant;
+};
+type TButton = DetailedHTMLProps<
+  ButtonHTMLAttributes<HTMLButtonElement>,
+  HTMLButtonElement
+> &
+  ButtonOptions;
+
+const Button = forwardRef<TRef, TButton>(
+  ({ className, variant, ...rest }, ref) => {
+    const getVariant = (variant?: TVariant) => {
+      switch (variant) {
+        case "outline":
+          return "btn-outline";
+        case "ghost":
+          return "btn-ghost";
+
+        default:
+          return "btn";
+      }
+    };
+    return (
+      <button
+        ref={ref}
+        {...rest}
+        className={cn(
+          getVariant(variant),
+
+          className
+        )}
+      >
+        Click Me
+      </button>
+    );
+  }
+);
+export default Button;

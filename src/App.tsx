@@ -14,7 +14,9 @@ function App() {
         <button className="btn btn-danger">Danger</button>
       </div>
       <br />
-      <Button variant="outline" />
+      <div className="border border-purple-500 w-96 p-10">
+        <Button variant="outline" />
+      </div>
     </div>
   );
 }
