@@ -14,7 +14,7 @@ function App() {
         <button className="btn btn-danger">Danger</button>
       </div>
       <br />
-      <Button className={"bg-red-500"} />
+      <Button outline={true} />
     </div>
   );
 }
