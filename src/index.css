@@ -1,27 +1,6 @@
+@import "./style/button.css";
+@import "./style/typhography.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@layer base {
-  h1 {
-    @apply text-3xl;
-  }
-  h2 {
-    @apply text-2xl;
-  }
-  h3 {
-    @apply text-xl;
-  }
-}
-
-@layer components {
-  .btn {
-    @apply px-4 py-2 rounded-md;
-  }
-  .btn-primary {
-    @apply bg-purple-500;
-  }
-  .btn-danger {
-    @apply bg-red-500;
-  }
-}
