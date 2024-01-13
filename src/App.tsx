@@ -1,3 +1,5 @@
+import Button from "./components/ui/Button";
+
 function App() {
   return (
     <div className="flex flex-col mx-auto justify-center items-center">
@@ -11,6 +13,8 @@ function App() {
 
         <button className="btn btn-danger">Danger</button>
       </div>
+      <br />
+      <Button className={"bg-red-500"} />
     </div>
   );
 }
