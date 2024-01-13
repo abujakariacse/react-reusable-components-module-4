@@ -1,18 +1,27 @@
 import cn from "../../utils/cn";
 export default function Button({
   className,
-  outline,
+  variant,
 }: {
   className: string;
-  outline: boolean;
+  variant: string;
 }) {
+  const getVariant = (variant: string) => {
+    switch (variant) {
+      case "outline":
+        return "btn-outline";
+      case "ghost":
+        return "btn-ghost";
+
+      default:
+        return "btn";
+    }
+  };
   return (
     <button
       className={cn(
-        " bg-purple-500 px-3 py-2 rounded-md",
-        {
-          "border border-purple-500 bg-opacity-10 ": outline,
-        },
+        getVariant(variant),
+
         className
       )}
     >
